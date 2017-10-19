@@ -36,7 +36,7 @@ class BlockchainLogger(object):
             row = [self.last_timestamp, self.last_data, self.last_hash]
             writer.writerow(row)
 
-    def record(self, data):
+    def log(self, data):
         self.last_timestamp = self.timestamp()
         self.last_data = data
         args = (self.last_timestamp, self.last_data, self.last_hash)
@@ -64,7 +64,7 @@ class BlockchainLogger(object):
 def test():
     bc = BlockchainLogger('test.blockchain')
     for data in ['This','is','a','Test']:
-        bc.record(data)
+        bc.log(data)
     assert BlockchainLogger.verify('test.blockchain')
 
 if __name__ == '__main__':
