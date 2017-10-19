@@ -58,7 +58,6 @@ class BlockchainLogger(object):
                     new_hash = BlockchainLogger.hash(row[0], row[1], prev[2])
                     if row[2] != new_hash: return False
                 prev = row
-                print 'x'
         return True
 
 def test():
